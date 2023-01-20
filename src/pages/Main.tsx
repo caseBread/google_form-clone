@@ -1,20 +1,14 @@
-import styled from 'styled-components';
 import Question from '../components/Question';
 import SideBar from '../components/SideBar';
 import Title from '../components/Title';
-import { transformCenterX } from '../styles/common';
-
-const MainContainer = styled.div`
-  ${transformCenterX}
-`;
 
 const Main = () => {
   return (
     <>
-      <MainContainer>
+      <div className="transform-center-x w-full max-w-4xl">
         <Title />
         <Question />
-      </MainContainer>
+      </div>
     </>
   );
 };

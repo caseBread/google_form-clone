@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    body {
+        background-color: #f0ebf8;
+    }
+}
+
+@layer components {
+    .flex-center {
+        @apply flex justify-center items-center;
+    }
+
+    .transform-center {
+        @apply absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2;
+    }
+
+    .transform-center-x {
+        @apply absolute left-1/2 transform -translate-x-1/2;
+    }
+
+    .focus-input {
+        @apply focus:outline-none focus:border-b-2 focus:border-b-primary;
+    }
+
+    .focus-box {
+        @apply focus-within:border-l-emphasis focus-within:border-l-8
+    }
+}
