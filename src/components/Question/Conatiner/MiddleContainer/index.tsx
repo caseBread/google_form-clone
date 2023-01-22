@@ -1,8 +1,14 @@
+import Options from '../../Options';
+
 interface Props {
-  questionType: string;
+  optionType: string;
 }
 
-const QuestionMiddle = ({ questionType }: Props) => {
-  return <div>{questionType}</div>;
+const QuestionMiddle = ({ optionType }: Props) => {
+  return (
+    <div className="my-4">
+      <Options optionType={optionType} />
+    </div>
+  );
 };
 export default QuestionMiddle;

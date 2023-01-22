@@ -9,7 +9,7 @@ const Question = () => {
   return (
     <BoxContainer>
       <QuestionTop questionType={questionType} setQuestionType={setQuestionType} />
-      <QuestionMiddle questionType={questionType} />
+      <QuestionMiddle optionType={questionType} />
       <QuestionBottom />
     </BoxContainer>
   );
