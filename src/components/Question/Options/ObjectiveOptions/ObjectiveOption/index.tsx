@@ -5,11 +5,12 @@ import useIcon from '../../../../../hooks/useIcon';
 interface Props {
   optionType: string;
   id: number;
+  dropdownIndex?: number;
   removeOption: (id: number) => void;
 }
 
-const ObjectiveOption = ({ optionType, id, removeOption }: Props) => {
-  const icon = useIcon({ optionType, id });
+const ObjectiveOption = ({ optionType, id, removeOption, dropdownIndex }: Props) => {
+  const icon = useIcon({ optionType, dropdownIndex });
   const handleRemoveButton = useCallback(() => removeOption(id), [id, removeOption]);
 
   return (

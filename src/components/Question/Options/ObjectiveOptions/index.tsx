@@ -12,7 +12,13 @@ const ObjectiveOptions = ({ optionType }: Props) => {
   return (
     <div className="w-full">
       {optionList.map((option, idx) => (
-        <ObjectiveOption key={option.id} id={option.id} optionType={optionType} removeOption={removeOption} />
+        <ObjectiveOption
+          key={option.id}
+          id={option.id}
+          dropdownIndex={idx + 1}
+          optionType={optionType}
+          removeOption={removeOption}
+        />
       ))}
       <button className="text-gray-400" onClick={addOption}>
         옵션 추가

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { BsCircle, BsSquare } from 'react-icons/bs';
 
-const useIcon = ({ optionType, id }: { optionType: string; id?: number }) => {
+const useIcon = ({ optionType, dropdownIndex }: { optionType: string; dropdownIndex?: number }) => {
   const [icon, setIcon] = useState<JSX.Element>();
   useEffect(() => {
     switch (optionType) {
@@ -12,12 +12,12 @@ const useIcon = ({ optionType, id }: { optionType: string; id?: number }) => {
         setIcon(<BsSquare />);
         break;
       case '드롭다운':
-        setIcon(<>{id}</>);
+        setIcon(<>{dropdownIndex}</>);
         break;
       default:
         throw new Error('없는 유형입니다.');
     }
-  }, [id, optionType]);
+  }, [dropdownIndex, optionType]);
 
   return icon;
 };
