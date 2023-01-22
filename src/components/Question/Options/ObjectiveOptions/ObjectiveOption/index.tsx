@@ -1,8 +1,16 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { FiX } from 'react-icons/fi';
+import useIcon from '../../../../../hooks/useIcon';
 
-const ObjectiveOption = ({ optionType, id }: { optionType: string; id: number }) => {
+interface Props {
+  optionType: string;
+  id: number;
+  removeOption: (id: number) => void;
+}
+
+const ObjectiveOption = ({ optionType, id, removeOption }: Props) => {
   const icon = useIcon({ optionType, id });
+  const handleRemoveButton = useCallback(() => removeOption(id), [id, removeOption]);
 
   return (
     <div className="flex gap-4 items-center">
@@ -12,7 +20,7 @@ const ObjectiveOption = ({ optionType, id }: { optionType: string; id: number })
         type="text"
         defaultValue="옵션"
       />
-      <button className="button-shadow">
+      <button className="button-shadow" onClick={handleRemoveButton}>
         <FiX />
       </button>
     </div>

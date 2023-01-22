@@ -10,7 +10,6 @@ const UseOutsideClick: Props = (element, initialState = false) => {
 
   useEffect(() => {
     const pageClickEvent = (e: React.BaseSyntheticEvent | MouseEvent) => {
-      console.log(13);
       if (element.current !== null && !element.current.contains(e.target)) {
         setIsActive((prev) => !prev);
       }
