@@ -26,6 +26,10 @@
     }
 
     .focus-box {
-        @apply focus-within:border-l-emphasis focus-within:border-l-8
+        @apply focus-within:border-l-emphasis focus-within:border-l-8 border-l-8 border-l-white;
+    }
+
+    .button-shadow {
+        @apply hover:bg-gray-100 active:bg-gray-200 rounded-full;
     }
 }

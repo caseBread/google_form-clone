@@ -6,7 +6,7 @@ interface Props {
 
 const QuestionMiddle = ({ optionType }: Props) => {
   return (
-    <div className="my-4">
+    <div className="my-4 w-full">
       <Options optionType={optionType} />
     </div>
   );

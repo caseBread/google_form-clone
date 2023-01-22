@@ -1,4 +1,4 @@
-import ObjectiveOption from './ObjectiveOption';
+import ObjectiveOptions from './ObjectiveOptions';
 import SubjectiveOption from './SubjectiveOption';
 
 interface Props {
@@ -10,7 +10,7 @@ const Options = ({ optionType }: Props) => {
     case '객관식 질문':
     case '체크박스':
     case '드롭다운':
-      return <ObjectiveOption optionType={optionType} />;
+      return <ObjectiveOptions optionType={optionType} />;
     case '단답형':
     case '장문형':
       return <SubjectiveOption optionType={optionType} />;

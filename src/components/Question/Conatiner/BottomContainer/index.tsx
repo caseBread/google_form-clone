@@ -6,10 +6,10 @@ const QuestionBottom = () => {
   return (
     <div className="pt-4 w-full border-t-1">
       <div className="flex justify-end [&>*]:px-2">
-        <button className="hover:bg-gray-100 rounded-full">
+        <button className="button-shadow">
           <MdOutlineContentCopy size={20} />
         </button>
-        <button className="hover:bg-gray-100 rounded-full">
+        <button className="button-shadow">
           <IoTrashOutline size={20} />
         </button>
         <div>
@@ -19,7 +19,7 @@ const QuestionBottom = () => {
           <span className="mr-2">필수</span>
           <input id="essential" type="checkbox" />
         </div>
-        <button className="hover:bg-gray-100 rounded-full">
+        <button className="button-shadow">
           <BiDotsVerticalRounded size={20} />
         </button>
       </div>
