@@ -15,9 +15,12 @@ const QuestionBottom = ({ id, removeQuestion }: { id: number; removeQuestion: (i
         <div>
           <div className="border-l-2 h-full"></div>
         </div>
-        <div>
-          <span className="mr-2">필수</span>
-          <input id="essential" type="checkbox" />
+        <div className="flex items-center gap-2">
+          필수
+          <label className="switch">
+            <input type="checkbox" />
+            <span className="slider"></span>
+          </label>
         </div>
         <button className="button-shadow">
           <BiDotsVerticalRounded size={20} />
