@@ -2,14 +2,14 @@ import { MdOutlineContentCopy } from 'react-icons/md';
 import { IoTrashOutline } from 'react-icons/io5';
 import { BiDotsVerticalRounded } from 'react-icons/bi';
 
-const QuestionBottom = () => {
+const QuestionBottom = ({ id, removeQuestion }: { id: number; removeQuestion: (id: number) => void }) => {
   return (
     <div className="pt-4 w-full border-t-1">
       <div className="flex justify-end [&>*]:px-2">
         <button className="button-shadow">
           <MdOutlineContentCopy size={20} />
         </button>
-        <button className="button-shadow">
+        <button className="button-shadow" onClick={() => removeQuestion(id)}>
           <IoTrashOutline size={20} />
         </button>
         <div>

@@ -1,5 +1,4 @@
-import useOptionList from '../../../../hooks/useOptionList';
-
+import useList from '../../../../hooks/useList';
 import ObjectiveOption from './ObjectiveOption';
 
 interface Props {
@@ -7,7 +6,7 @@ interface Props {
 }
 
 const ObjectiveOptions = ({ optionType }: Props) => {
-  const [optionList, addOption, removeOption] = useOptionList();
+  const [optionList, addOption, removeOption] = useList();
 
   return (
     <div className="w-full">
