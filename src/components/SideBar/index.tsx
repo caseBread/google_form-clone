@@ -1,11 +1,13 @@
 import { useCallback } from 'react';
 import { BsPlusCircle } from 'react-icons/bs';
 import { IoEyeOutline } from 'react-icons/io5';
+import { useNavigate } from 'react-router-dom';
 import { addQuestion } from '../../redux/forms/slice';
 import { useAppDispatch } from '../../redux/hooks';
 
 const SideBar = ({ addQuestion: addQuestionView }: { addQuestion: () => void }) => {
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   const handleAddQuestion = useCallback(() => {
     addQuestionView();
@@ -18,7 +20,7 @@ const SideBar = ({ addQuestion: addQuestionView }: { addQuestion: () => void }) 
         <button type="button" onClick={handleAddQuestion}>
           <BsPlusCircle size={25} />
         </button>
-        <button type="button">
+        <button type="button" onClick={() => navigate('/preview')}>
           <IoEyeOutline size={25} />
         </button>
       </div>

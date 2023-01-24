@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { Question, questionInit } from '../../types/question';
 import { Title } from '../../types/title';
+import { RootState } from '../store';
 import formsState from './state';
 
 const formsSlice = createSlice({
@@ -23,5 +24,7 @@ const formsSlice = createSlice({
 });
 
 export const { updateTitle, addQuestion, updateQuestion, deleteQuestion } = formsSlice.actions;
+export const selectTitle = (state: RootState) => state.forms.title;
+export const selectQuestions = (state: RootState) => state.forms.questions;
 
 export default formsSlice;

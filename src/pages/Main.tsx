@@ -8,12 +8,12 @@ const Main = () => {
 
   return (
     <>
-      <div className="transform-center-x w-full max-w-4xl">
+      <main className="transform-center-x w-full max-w-4xl">
         <Title />
         {questionList.map((question, idx) => (
           <Question key={question.id} id={question.id} removeQuestion={removeQuestion} />
         ))}
-      </div>
+      </main>
       <SideBar addQuestion={addQuestion} />
     </>
   );

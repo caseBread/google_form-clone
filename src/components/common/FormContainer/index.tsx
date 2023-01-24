@@ -1,6 +1,7 @@
 import React from 'react';
 import { updateQuestion, updateTitle } from '../../../redux/forms/slice';
 import { useAppDispatch } from '../../../redux/hooks';
+import BoxContainer from '../BoxContainer';
 
 interface Props {
   children: React.ReactNode;
@@ -12,7 +13,7 @@ const FormContainer = ({ children, type = 'question', questionId }: Props) => {
   const dispatch = useAppDispatch();
 
   // TODO : redux 로직 분리하기
-  const onChange = (e: React.FocusEvent<HTMLFormElement>) => {
+  const handleForm = (e: React.FocusEvent<HTMLFormElement>) => {
     const target = Array.from(e.currentTarget);
     e.preventDefault();
     if (type === 'title') {
@@ -78,14 +79,9 @@ const FormContainer = ({ children, type = 'question', questionId }: Props) => {
   };
 
   return (
-    <form
-      className={`bg-white rounded-lg flex-center flex-col p-6  focus-box my-4 ${
-        type === 'title' && 'border-t-8 border-t-primary'
-      }`}
-      onBlur={onChange}
-    >
+    <BoxContainer handleForm={handleForm} type={type} questionId={questionId}>
       {children}
-    </form>
+    </BoxContainer>
   );
 };
 
