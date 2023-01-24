@@ -1,16 +1,13 @@
+import { Question, questionInit } from '../../types/question';
+import { Title, titleInit } from '../../types/title';
+
 interface FormsStateType {
-  formTitle: {
-    title: string;
-    explanation: string;
-  };
-  questions: { id: number; title: string; type: string; options: { id: number; content: string }[] }[];
+  title: Title;
+  questions: Question[];
 }
 
 const formsState: FormsStateType = {
-  formTitle: {
-    title: '',
-    explanation: '',
-  },
-  questions: [{ id: 0, title: '', type: '', options: [{ id: 0, content: '' }] }],
+  title: titleInit,
+  questions: [questionInit],
 };
 export default formsState;

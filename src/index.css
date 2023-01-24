@@ -58,7 +58,7 @@
     background-color: #fff;
     border: 1px solid #adb5bd;
     transition: .4s;
-    border-radius: 100px;
+    border-radius: 30px;
   }
   
   .slider:before {

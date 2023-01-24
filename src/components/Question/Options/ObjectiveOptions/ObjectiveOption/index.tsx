@@ -20,8 +20,10 @@ const ObjectiveOption = ({ optionType, id, removeOption, dropdownIndex }: Props)
         className="focus-input w-full p-2 border-b-1 border-white hover:border-gray-200"
         type="text"
         defaultValue="옵션"
+        name="option"
+        data-id={id}
       />
-      <button className="button-shadow" onClick={handleRemoveButton}>
+      <button className="button-shadow" type="button" onClick={handleRemoveButton}>
         <FiX />
       </button>
     </div>

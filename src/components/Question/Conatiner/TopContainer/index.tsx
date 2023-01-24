@@ -29,8 +29,14 @@ const QuestionTop = ({ questionType, setQuestionType }: Props) => {
 
   return (
     <div className="flex items-center w-full gap-8">
-      <input className="w-2/3 focus-input p-4 bg-gray-50 border-b-1" type="text" defaultValue="제목없는 질문" />
+      <input
+        className="w-2/3 focus-input p-4 bg-gray-50 border-b-1"
+        type="text"
+        defaultValue="제목없는 질문"
+        name="question"
+      />
       <div className="w-1/3 p-3 border-gray-300 border-1 rounded-sm" onClick={handleShowDropdown} ref={dropdownRef}>
+        <input type="hidden" value={questionType} name="questionType" />
         <div className="flex justify-between items-center">
           <div>{questionType}</div>
           <RiArrowDropDownFill />

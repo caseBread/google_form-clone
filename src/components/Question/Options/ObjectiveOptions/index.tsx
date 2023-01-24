@@ -19,7 +19,7 @@ const ObjectiveOptions = ({ optionType }: Props) => {
           removeOption={removeOption}
         />
       ))}
-      <button className="text-gray-400" onClick={addOption}>
+      <button className="text-gray-400" type="button" onClick={addOption}>
         옵션 추가
       </button>
     </div>

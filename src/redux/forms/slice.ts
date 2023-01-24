@@ -1,14 +1,24 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { Question, questionInit } from '../../types/question';
+import { Title } from '../../types/title';
 import formsState from './state';
 
 const formsSlice = createSlice({
   name: 'forms',
   initialState: formsState,
   reducers: {
-    updateTitle: (state) => {},
-    addQuestion: (state) => {},
-    updateQuestion: (state) => {},
-    deleteQuestion: (state) => {},
+    updateTitle: (state, action: PayloadAction<Title>) => {
+      state.title = action.payload;
+    },
+    addQuestion: (state) => {
+      state.questions.push(questionInit);
+    },
+    updateQuestion: (state, action: PayloadAction<Question>) => {
+      state.questions[action.payload.id] = action.payload;
+    },
+    deleteQuestion: (state, action: PayloadAction<number>) => {
+      state.questions = state.questions.filter((question, idx) => question.id !== action.payload);
+    },
   },
 });
 
