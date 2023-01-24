@@ -38,7 +38,7 @@
     position: relative;
     display: inline-block;
     width: 3.5em;
-    height: 2em;
+    height: 1.5em;
     }
   
   .switch input {
@@ -58,13 +58,13 @@
     background-color: #fff;
     border: 1px solid #adb5bd;
     transition: .4s;
-    border-radius: 30px;
+    border-radius: 100px;
   }
   
   .slider:before {
     position: absolute;
     content: "";
-    height: 1.4em;
+    height: 1em;
     width: 1.4em;
     border-radius: 20px;
     left: 0.27em;
@@ -74,8 +74,7 @@
   }
   
   input:checked + .slider {
-    background-color: #007bff;
-    border: 1px solid #007bff;
+    @apply bg-primary border-primary
   }
   
   input:focus + .slider {
