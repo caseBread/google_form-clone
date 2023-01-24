@@ -1,9 +1,14 @@
+export interface Option {
+  id: number;
+  content: string;
+}
+
 export interface Question {
   id: number;
   question: string;
   type: string;
   essential: boolean;
-  options: { id: number; content: string }[];
+  options: Option[];
 }
 
 export const questionInit = {
