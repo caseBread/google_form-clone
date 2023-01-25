@@ -11,6 +11,7 @@ const Preview = () => {
       <BoxContainer type="title">
         <div className="text-2xl w-full py-2 my-1">{titleSelector.title}</div>
         <div className="w-full my-1">{titleSelector.explanation}</div>
+        <div className="w-full pt-2 text-red-500">* 필수항목</div>
       </BoxContainer>
       {questionSelector &&
         questionSelector.map((question, idx) => (
