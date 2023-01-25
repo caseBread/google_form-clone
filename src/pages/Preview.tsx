@@ -14,8 +14,11 @@ const Preview = () => {
       </BoxContainer>
       {questionSelector &&
         questionSelector.map((question, idx) => (
-          <BoxContainer type="question">
-            <OptionView type={question.type} options={question.options} />
+          <BoxContainer key={question.id} type="question">
+            <div className="w-full p-4 text-xl">{question.question}</div>
+            <div className="w-full">
+              <OptionView type={question.type} options={question.options} />
+            </div>
           </BoxContainer>
         ))}
     </main>

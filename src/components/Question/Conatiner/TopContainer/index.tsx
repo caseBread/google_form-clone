@@ -4,36 +4,73 @@ import { IoReorderTwoSharp } from 'react-icons/io5';
 import { IoMdArrowDropdownCircle } from 'react-icons/io';
 import { AiOutlineAlignLeft, AiFillCheckSquare } from 'react-icons/ai';
 import { BsFillRecordCircleFill } from 'react-icons/bs';
+import { IDropdownInit } from '../../../../types/dropdown';
 interface Props {
   questionType: string;
   setQuestionType: Dispatch<SetStateAction<string>>;
 }
 
 const DropdownInit = [
-  <>
-    <IoReorderTwoSharp />
-    단답형
-  </>,
-  <>
-    <AiOutlineAlignLeft />
-    장문형
-  </>,
-  <>
-    <BsFillRecordCircleFill />
-    객관식 질문
-  </>,
-  <>
-    <AiFillCheckSquare />
-    체크박스
-  </>,
-  <>
-    <IoMdArrowDropdownCircle />
-    드롭다운
-  </>,
+  {
+    id: 0,
+    content: (
+      <>
+        <IoReorderTwoSharp />
+        단답형
+      </>
+    ),
+  },
+  {
+    id: 1,
+    content: (
+      <>
+        <AiOutlineAlignLeft />
+        장문형
+      </>
+    ),
+  },
+  {
+    id: 2,
+    content: (
+      <>
+        <BsFillRecordCircleFill />
+        객관식 질문
+      </>
+    ),
+  },
+  {
+    id: 3,
+    content: (
+      <>
+        <AiFillCheckSquare />
+        체크박스
+      </>
+    ),
+  },
+  {
+    id: 4,
+    content: (
+      <>
+        <IoMdArrowDropdownCircle />
+        드롭다운
+      </>
+    ),
+  },
 ];
 
 const QuestionTop = ({ questionType, setQuestionType }: Props) => {
-  const [dropdownValue, setDropdownValue] = useState('');
+  const [dropdownValue, setDropdownValue] = useState<IDropdownInit>(DropdownInit[0]);
+
+  const handleDropdownValue = useCallback(
+    (e: React.MouseEvent<HTMLDivElement>) => {
+      setQuestionType(e.currentTarget.innerText);
+      if (e.currentTarget.dataset['id']) {
+        const id = Number(e.currentTarget.dataset['id']);
+        setDropdownValue(DropdownInit[id]);
+      }
+    },
+    [setQuestionType]
+  );
 
   return (
     <div className="flex items-center w-full gap-8">
@@ -43,7 +80,7 @@ const QuestionTop = ({ questionType, setQuestionType }: Props) => {
         defaultValue="제목없는 질문"
         name="question"
       />
-      <Dropdown value={dropdownValue} setValue={setDropdownValue} DropdownInit={DropdownInit} />
+      <Dropdown value={dropdownValue} handleValue={handleDropdownValue} DropdownInit={DropdownInit} />
       <input type="hidden" value={questionType} name="questionType" />
     </div>
   );

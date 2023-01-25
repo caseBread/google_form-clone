@@ -8,6 +8,6 @@ interface FormsStateType {
 
 const formsState: FormsStateType = {
   title: titleInit,
-  questions: [questionInit],
+  questions: [],
 };
 export default formsState;

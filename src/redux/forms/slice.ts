@@ -12,7 +12,7 @@ const formsSlice = createSlice({
       state.title = action.payload;
     },
     addQuestion: (state) => {
-      state.questions.push(questionInit);
+      // state.questions.push(questionInit);
     },
     updateQuestion: (state, action: PayloadAction<Question>) => {
       state.questions[action.payload.id] = action.payload;

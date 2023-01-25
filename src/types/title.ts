@@ -4,6 +4,6 @@ export interface Title {
 }
 
 export const titleInit = {
-  title: '',
+  title: '제목 없는 설문지',
   explanation: '',
 };
