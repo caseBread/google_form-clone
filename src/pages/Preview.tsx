@@ -1,5 +1,5 @@
 import BoxContainer from '../components/common/BoxContainer';
-import OptionView from '../components/aaaPreview/OptionView';
+import OptionView from '../components/Preview/OptionView';
 import { selectQuestions, selectTitle } from '../redux/forms/slice';
 import { useAppSelector } from '../redux/hooks';
 
