@@ -1,4 +1,5 @@
 import BoxContainer from '../components/common/BoxContainer';
+import OptionView from '../components/preview/OptionView';
 import { selectQuestions, selectTitle } from '../redux/forms/slice';
 import { useAppSelector } from '../redux/hooks';
 
@@ -13,7 +14,9 @@ const Preview = () => {
       </BoxContainer>
       {questionSelector &&
         questionSelector.map((question, idx) => (
-          <BoxContainer type="question">{JSON.stringify(question)}</BoxContainer>
+          <BoxContainer type="question">
+            <OptionView type={question.type} options={question.options} />
+          </BoxContainer>
         ))}
     </main>
   );

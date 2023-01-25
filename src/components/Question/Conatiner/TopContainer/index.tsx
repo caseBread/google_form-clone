@@ -1,31 +1,39 @@
-import React, { Dispatch, SetStateAction, useCallback, useRef } from 'react';
-import { RiArrowDropDownFill } from 'react-icons/ri';
+import React, { Dispatch, SetStateAction, useCallback, useState } from 'react';
+import Dropdown from '../../../common/Dropdown';
 import { IoReorderTwoSharp } from 'react-icons/io5';
 import { IoMdArrowDropdownCircle } from 'react-icons/io';
 import { AiOutlineAlignLeft, AiFillCheckSquare } from 'react-icons/ai';
 import { BsFillRecordCircleFill } from 'react-icons/bs';
-import UseOutsideClick from '../../../../hooks/UseOutsideClick';
-import Dropdown from '../../../common/Dropdown';
-
 interface Props {
   questionType: string;
   setQuestionType: Dispatch<SetStateAction<string>>;
 }
 
+const DropdownInit = [
+  <>
+    <IoReorderTwoSharp />
+    단답형
+  </>,
+  <>
+    <AiOutlineAlignLeft />
+    장문형
+  </>,
+  <>
+    <BsFillRecordCircleFill />
+    객관식 질문
+  </>,
+  <>
+    <AiFillCheckSquare />
+    체크박스
+  </>,
+  <>
+    <IoMdArrowDropdownCircle />
+    드롭다운
+  </>,
+];
+
 const QuestionTop = ({ questionType, setQuestionType }: Props) => {
-  const dropdownRef = useRef(null);
-  const [showDropdown, setShowDropdown] = UseOutsideClick(dropdownRef, false);
-
-  const handleQuestionType = useCallback(
-    (e: React.MouseEvent<HTMLDivElement>) => {
-      setQuestionType(e.currentTarget.innerText);
-    },
-    [setQuestionType]
-  );
-
-  const handleShowDropdown = useCallback(() => {
-    setShowDropdown((prev) => !prev);
-  }, [setShowDropdown]);
+  const [dropdownValue, setDropdownValue] = useState('');
 
   return (
     <div className="flex items-center w-full gap-8">
@@ -35,37 +43,8 @@ const QuestionTop = ({ questionType, setQuestionType }: Props) => {
         defaultValue="제목없는 질문"
         name="question"
       />
-      <div className="w-1/3 p-3 border-gray-300 border-1 rounded-sm" onClick={handleShowDropdown} ref={dropdownRef}>
-        <input type="hidden" value={questionType} name="questionType" />
-        <div className="flex justify-between items-center">
-          <div>{questionType}</div>
-          <RiArrowDropDownFill />
-        </div>
-        <div className={`${!showDropdown && 'hidden'}`}>
-          <Dropdown>
-            <div className="flex items-center gap-2" onClick={handleQuestionType}>
-              <IoReorderTwoSharp />
-              단답형
-            </div>
-            <div className="flex items-center gap-2" onClick={handleQuestionType}>
-              <AiOutlineAlignLeft />
-              장문형
-            </div>
-            <div className="flex items-center gap-2" onClick={handleQuestionType}>
-              <BsFillRecordCircleFill />
-              객관식 질문
-            </div>
-            <div className="flex items-center gap-2" onClick={handleQuestionType}>
-              <AiFillCheckSquare />
-              체크박스
-            </div>
-            <div className="flex items-center gap-2" onClick={handleQuestionType}>
-              <IoMdArrowDropdownCircle />
-              드롭다운
-            </div>
-          </Dropdown>
-        </div>
-      </div>
+      <Dropdown value={dropdownValue} setValue={setDropdownValue} DropdownInit={DropdownInit} />
+      <input type="hidden" value={questionType} name="questionType" />
     </div>
   );
 };
