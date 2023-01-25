@@ -5,7 +5,7 @@ import Dropdown from '../../common/Dropdown';
 import ObjectiveOptionPreview from '../ObjectiveOption';
 
 const OptionView = ({ type, options }: { type: string; options: Option[] }) => {
-  const [dropdownValue, setDropdownValue] = useState<IDropdownInit>(options[0]);
+  const [dropdownValue, setDropdownValue] = useState<IDropdownInit>(options[1]);
   const handleDropdownValue = useCallback(
     (e: React.MouseEvent<HTMLDivElement>) => {
       const id = Number(e.currentTarget.dataset['id']);
