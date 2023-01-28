@@ -37,6 +37,47 @@ npm start
 
 https://youtu.be/EMUZo13ha0U
 
+## 컴포넌트 종류
+
+```
+├── components/
+│   ├── Preview/  
+│   │   ├── ObjectiveOption/   
+│   │   │   └── index.tsx
+│   │   ├── OptionView/
+│   │   │   └── index.tsx
+│   │   └── SubjectiveOption/
+│   │       └── index.tsx
+│   ├── Question/ : 설문지에서 하나의 질문 로직을 다룹니다.
+│   │   ├── Conatiner/  
+│   │   │   ├── BottomContainer/
+│   │   │   ├── MiddleContainer/
+│   │   │   └── TopContainer/
+│   │   ├── Options/  : 객관식과 주관식 컴포넌트로 나누어 구현하였습니다.
+│   │   │   ├── ObjectiveOptions/
+│   │   │   ├── SubjectiveOption/
+│   │   │   └── index.tsx
+│   │   └── index.tsx
+│   ├── SideBar/ 
+│   │   └── index.tsx
+│   ├── Title/  : 설문지의 제목 관련 View&Logic 컴포넌트
+│   │   └── index.tsx
+│   └── common/   : 재사용 가능한 컴포넌트는 common폴더로 분리해주었습니다.
+│       ├── BoxContainer/
+│       │   └── index.tsx
+│       ├── Dropdown/
+│       │   └── index.tsx
+│       └── FormContainer/
+│           └── index.tsx
+
+```
+
+
+- 질문 컴포넌트(Question/)는 총 세가지로 나뉩니다.
+  - 제목이 포함된 TopContainer
+  - 선택지작성이 포함된 MiddleContainer 
+  - 질문삭제 및 필수체크가 포함된 BottomContainer
+
 ## 트러블 슈팅
 
 ### 선택지(옵션) 추가삭제 어떻게 구현해야할까?
@@ -54,7 +95,7 @@ https://youtu.be/EMUZo13ha0U
 
 그래서 id를 저장하기 위한 list를 customHook으로 만들어주었습니다.
 
-```jsx
+```javascript
 const useOptionList: UseOptionListProps = () => {
   const [list, setList] = useState<number[]>([]);
 
@@ -87,7 +128,7 @@ export default useOptionList;
 **구현 결과**
 
 
-```jsx
+```javascript
 const useOptionList: UseOptionListProps = () => {
   const [list, setList] = useState<OptionType[]>([]);
 
