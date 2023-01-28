@@ -18,7 +18,7 @@ const Preview = () => {
           <BoxContainer key={question.id} type="question">
             <div className="w-full py-4 text-xl">
               {question.question}
-              <span className="text-red-500 pl-1">*</span>
+              {question.essential && <span className="text-red-500 pl-1">*</span>}
             </div>
             <div className="w-full">
               <OptionView type={question.type} options={question.options} />

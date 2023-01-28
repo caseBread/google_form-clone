@@ -54,7 +54,7 @@ const FormContainer = ({ children, type = 'question', questionId }: Props) => {
                 acc.type = cur.value;
                 break;
               case 'essential':
-                acc.essential = cur.value === 'true';
+                acc.essential = cur.checked;
                 break;
               default:
                 throw new Error(`정의되지 않은 유형의 입력입니다. : ${cur.name}`);
