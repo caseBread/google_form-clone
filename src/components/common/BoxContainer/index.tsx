@@ -1,6 +1,6 @@
 interface BoxContainerProps {
   children: React.ReactNode;
-  handleForm?: (e: React.FocusEvent<HTMLFormElement>) => void;
+  handleForm?: (e: React.ChangeEvent<HTMLFormElement>) => void;
   type?: 'title' | 'question';
   questionId?: number;
 }
@@ -11,7 +11,7 @@ const BoxContainer = ({ children, handleForm, type }: BoxContainerProps) => {
       className={`bg-white rounded-lg flex-center flex-col p-6  focus-box my-4 ${
         type === 'title' && 'border-t-8 border-t-primary'
       }`}
-      onBlur={handleForm}
+      onChange={handleForm}
     >
       {children}
     </form>
