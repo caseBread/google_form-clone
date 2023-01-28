@@ -3,6 +3,7 @@ import { IDropdownInit } from '../../../types/dropdown';
 import { Option } from '../../../types/question';
 import Dropdown from '../../common/Dropdown';
 import ObjectiveOptionPreview from '../ObjectiveOption';
+import SubjectiveOptionPreview from '../SubjectiveOption';
 
 const OptionView = ({ type, options }: { type: string; options: Option[] }) => {
   const [dropdownValue, setDropdownValue] = useState<IDropdownInit>(options[1]);
@@ -15,6 +16,9 @@ const OptionView = ({ type, options }: { type: string; options: Option[] }) => {
   );
 
   switch (type) {
+    case '단답형':
+    case '장문형':
+      return <SubjectiveOptionPreview />;
     case '객관식 질문':
     case '체크박스':
       return <ObjectiveOptionPreview type={type} options={options} />;
