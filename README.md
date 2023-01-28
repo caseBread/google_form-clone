@@ -1,5 +1,17 @@
 # 구글 폼 클론 과제
 
+## 실행 방법
+
+1. npm 설치
+```
+npm install
+```
+
+2. 프로젝트 실행
+```
+npm start
+```
+
 ## 구현 목록
 - [x] 설문지 제목 추가, 편집
 - [x] 설문지 설명 추가, 편집
@@ -18,11 +30,12 @@
 
 - [x] 사이드바
     - [x] 반응형 추가
+    
+    <img width="450" alt="스크린샷 2023-01-29 오전 8 09 54" src="https://user-images.githubusercontent.com/92029332/215295342-7f14f47f-e75c-41c3-bba2-f4b31b915111.png">
 
-## 실행 방법
+## 시연 영상
 
-1. `npm install`
-2. `npm start`
+https://youtu.be/EMUZo13ha0U
 
 ## 트러블 슈팅
 
@@ -96,24 +109,24 @@ export default useOptionList;
 
 **아쉬운 점**
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/0813fffc-a86b-4127-b6ae-ebc4baf0f1fd/Untitled.png)
+![Untitled](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/0813fffc-a86b-4127-b6ae-ebc4baf0f1fd/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20230128%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20230128T231637Z&X-Amz-Expires=86400&X-Amz-Signature=c48e90c824d88993367e0d92b132d1ef15bc84389612ed3fd3f7ba2c1160b101&X-Amz-SignedHeaders=host&response-content-disposition=filename%3D%22Untitled.png%22&x-id=GetObject)
 
 드롭다운에서 가운데에 있는 요소를 제거 시 index가 업데이트되지 않았습니다.
 
 => map 메소드에서 제공하는 index를 활용하여 구현해볼 수 있을 것 같습니다.
 
-이 방식대로 개선해본 결과 정상적으로 동작됨을 확인해볼 수 있었습니다.
+이 방식대로 개선해본 결과 정상적으로 고칠 수 있었습니다.
 
 
 ### Redux 도입 이유
 
 이번 과제는 필수로 Redux를 도입해야 합니다.
-그래서 이번 과제의 어떤 부분에서 redux를 활용하는게 맞을 지 고민해보았습니다.
+그래서 어떤 부분에서 redux를 활용하는게 맞을 지 고민해보았습니다.
 
 1. 미리보기 기능
     - 미리보기기능은 단순하게 설문지 생성 화면에서 input 부분의 수정을 막아줌으로써 구현이 가능하긴 합니다.
     - 하지만, 단순히 input부분의 수정을 막기에는 과도한 조건문의 사용이 동반될 것 같아 고려하지 않았습니다.
-    - 대신, redux를 통해 frontend의 상태값을 관리해주면 그 값을 이용하여 미리보기 기능에 활용해 볼 수 있다고 생각했습니다.
+    - 대신, redux를 통해 frontend의 상태값을 관리해주면 그 값을 이용하여 미리보기 페이지에서 활용해 볼 수 있다고 생각했습니다.
     
 2. 복사 기능
     - 질문을 복사할 때 질문에 있는 값(문제의 type, 선택지)을 그대로 옮겨서 새 질문box를 만들어야 합니다.
