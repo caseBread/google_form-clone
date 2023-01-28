@@ -12,7 +12,6 @@ interface Props {
 const FormContainer = ({ children, type = 'question', questionId }: Props) => {
   const dispatch = useAppDispatch();
 
-  // TODO : redux 로직 분리하기
   const handleForm = (e: React.ChangeEvent<HTMLFormElement>) => {
     const target = Array.from(e.currentTarget);
     e.preventDefault();
