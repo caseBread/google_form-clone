@@ -13,7 +13,7 @@ const FormContainer = ({ children, type = 'question', questionId }: Props) => {
   const dispatch = useAppDispatch();
 
   // TODO : redux 로직 분리하기
-  const handleForm = (e: React.FocusEvent<HTMLFormElement>) => {
+  const handleForm = (e: React.ChangeEvent<HTMLFormElement>) => {
     const target = Array.from(e.currentTarget);
     e.preventDefault();
     if (type === 'title') {
@@ -54,7 +54,7 @@ const FormContainer = ({ children, type = 'question', questionId }: Props) => {
                 acc.type = cur.value;
                 break;
               case 'essential':
-                acc.essential = Boolean(cur.value);
+                acc.essential = cur.value === 'true';
                 break;
               default:
                 throw new Error(`정의되지 않은 유형의 입력입니다. : ${cur.name}`);

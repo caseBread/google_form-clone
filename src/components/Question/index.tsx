@@ -4,8 +4,13 @@ import QuestionBottom from './Conatiner/BottomContainer';
 import QuestionMiddle from './Conatiner/MiddleContainer';
 import QuestionTop from './Conatiner/TopContainer';
 
-const Question = ({ id, removeQuestion }: { id: number; removeQuestion: (id: number) => void }) => {
-  const [questionType, setQuestionType] = useState('객관식 질문');
+interface Props {
+  id: number;
+  removeQuestion: (id: number) => void;
+}
+
+const Question = ({ id, removeQuestion }: Props) => {
+  const [questionType, setQuestionType] = useState('단답형');
   return (
     <FormContainer questionId={id}>
       <QuestionTop questionType={questionType} setQuestionType={setQuestionType} />
