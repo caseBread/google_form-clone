@@ -150,8 +150,6 @@ export default useOptionList;
 
 **아쉬운 점**
 
-![Untitled](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/0813fffc-a86b-4127-b6ae-ebc4baf0f1fd/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20230128%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20230128T231637Z&X-Amz-Expires=86400&X-Amz-Signature=c48e90c824d88993367e0d92b132d1ef15bc84389612ed3fd3f7ba2c1160b101&X-Amz-SignedHeaders=host&response-content-disposition=filename%3D%22Untitled.png%22&x-id=GetObject)
-
 드롭다운에서 가운데에 있는 요소를 제거 시 index가 업데이트되지 않았습니다.
 
 => map 메소드에서 제공하는 index를 활용하여 구현해볼 수 있을 것 같습니다.
